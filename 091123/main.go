@@ -29,6 +29,8 @@ func main() {
 	index := binarySearch(arr, target)
 
 	if index != -1 {
-		fmt.Println(index)
+		fmt.Printf("Element %d found at target %d\n", target, index)
+	} else {
+		fmt.Printf("Element %d not found in the array\n", target)
 	}
 }
