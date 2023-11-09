@@ -1,42 +1,34 @@
 package main
 
-import (
-	"091123/domain"
-	"fmt"
-	// "strconv"
-)
+import "fmt"
 
-// func main() {
-// 	// y := 2
-// 	// p := &y
-// 	// fmt.Println(p)
-// 	// fmt.Println(*p)
 
-// 	number := "123456789"
-// 	parsedNumber, err := ParseString(number)
-// 	if err != nil {
-// 		fmt.Println("Error: ", err)
-// 		return
-// 	}
-// 	fmt.Println("Number: ", parsedNumber)
-// }
+func binarySearch(arr []int, target int) int {
+	low, high := 0, len(arr)-1
 
-// func ParseString(s string) (*int64, error) {
-// 	parsed, err := strconv.ParseInt(s, 10, 64)
-// 	if err != nil {
-// 		return nil, err
-// 	}
-// 	return &parsed, nil
-// }
+	for low <= high {
+		mid := (low + high) / 2
+
+		if arr[mid] == target {
+			return mid
+		} else if arr[mid] < target {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
+
+	return -1
+}
 
 func main() {
-	restaurant := domain.CreateRestaurant("Restaurant", 100, 169)
-	fmt.Println("Name: " + restaurant.GetName())
-	fmt.Printf("Capacity: %d\n", restaurant.GetCapacity())
-	fmt.Printf("Price: %dKč\n", restaurant.GetPrice())
+	arr := []int{1,2,3,4,5,6,7,8,9,10}
 
-	user := domain.CreateUser("Test", "User", 14, 320)
-	fmt.Printf("Balance: %dKč\n", user.GetBalance())
-	user.AddMoney(100)
-	fmt.Printf("Balance: %dKč\n", user.GetBalance())
+	target := 4
+
+	index := binarySearch(arr, target)
+
+	if index != -1 {
+		fmt.Println(index)
+	}
 }
