@@ -1,36 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-
-func binarySearch(arr []int, target int) int {
-	low, high := 0, len(arr)-1
-
-	for low <= high {
-		mid := (low + high) / 2
-
-		if arr[mid] == target {
-			return mid
-		} else if arr[mid] < target {
-			low = mid + 1
-		} else {
-			high = mid - 1
-		}
-	}
-
-	return -1
-}
+//* import "fmt"
 
 func main() {
-	arr := []int{1,2,3,4,5,6,7,8,9,10}
-
-	target := 4
-
-	index := binarySearch(arr, target)
-
-	if index != -1 {
-		fmt.Printf("Element %d found at target %d\n", target, index)
-	} else {
-		fmt.Printf("Element %d not found in the array\n", target)
+	list := []int{5,8,3,2,9,7,4,1,6,10}
+	for i := 0; i < len(list); i++ {
+		fmt.Printf("%d\n", list[i])
 	}
 }
